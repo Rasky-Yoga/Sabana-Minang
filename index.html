@@ -1,0 +1,705 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Sabana Minang</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout: signboard-style landing page. Black ground, red signboard blocks, gold type, a songket diamond strip as the one ornament. */
+:root {
+  --black: #0c0a09;
+  --ink: #17120f;
+  --ink-2: #211a15;
+  --red: #c1201a;
+  --red-deep: #8f1511;
+  --gold: #f2b61c;
+  --gold-soft: #f7d57a;
+  --text: #f4ede0;
+  --muted: #b8ab97;
+  --line: rgba(242, 182, 28, 0.22);
+  --font-display: "Alfa Slab One", "Rockwell", "Georgia", serif;
+  --font-body: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--black);
+  z-index: 60;
+}
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+
+.wrap {
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+section { padding-block: 84px; }
+
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+/* Songket strip */
+.strip {
+  height: 18px;
+  background-color: var(--red-deep);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='18'%3E%3Crect width='36' height='18' fill='%238f1511'/%3E%3Cpath d='M18 1 L27 9 L18 17 L9 9Z' fill='%23f2b61c'/%3E%3Cpath d='M18 5 L23 9 L18 13 L13 9Z' fill='%230c0a09'/%3E%3Cpath d='M0 9 L3 6 L6 9 L3 12Z M30 9 L33 6 L36 9 L33 12Z' fill='%23c1201a'/%3E%3C/svg%3E");
+  background-size: 36px 18px;
+  border-block: 2px solid var(--black);
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 50;
+  background: rgba(12, 10, 9, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 12px;
+}
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
+.brand svg { width: 40px; height: 27px; flex: none; }
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+}
+.brand-name small {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.nav { display: flex; align-items: center; gap: 26px; }
+.nav a.link {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text);
+  padding-block: 6px;
+  border-bottom: 2px solid transparent;
+}
+.nav a.link:hover { border-color: var(--gold); color: var(--gold-soft); }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.btn svg { width: 20px; height: 20px; flex: none; }
+.btn:hover { transform: translateY(-2px); }
+.btn-red { background: var(--red); color: #fff; border-color: var(--red); }
+.btn-red:hover { background: #d9261f; border-color: #d9261f; }
+.btn-gold { background: var(--gold); color: var(--black); border-color: var(--gold); }
+.btn-gold:hover { background: var(--gold-soft); border-color: var(--gold-soft); }
+.btn-line { background: transparent; color: var(--gold); border-color: var(--gold); }
+.btn-line:hover { background: var(--gold); color: var(--black); }
+.btn-sm { min-height: 40px; padding: 8px 18px; font-size: 0.85rem; }
+
+/* Hero */
+.hero {
+  padding-block: 72px 84px;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--black);
+  background-image:
+    linear-gradient(90deg, rgba(12, 10, 9, 0.95) 0%, rgba(12, 10, 9, 0.82) 45%, rgba(12, 10, 9, 0.6) 100%),
+    linear-gradient(180deg, rgba(12, 10, 9, 0.35) 0%, rgba(12, 10, 9, 0.9) 100%),
+    url("etalase.png");
+  background-size: cover;
+  background-position: center 35%;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% -40% auto;
+  width: 60%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(193, 32, 26, 0.28), transparent 65%);
+  pointer-events: none;
+}
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-copy { min-width: 0; }
+.eyebrow {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  padding: 6px 12px;
+  border-radius: 3px;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 6.2vw, 4.7rem);
+  line-height: 1.04;
+  letter-spacing: 0.005em;
+  margin-top: 22px;
+  color: var(--text);
+}
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero .lede { margin-top: 22px; max-width: 52ch; color: var(--muted); font-size: 1.08rem; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+.hero-facts { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 38px; padding: 0; list-style: none; }
+.hero-facts li {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.hero-facts li::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  flex: none;
+}
+
+/* Menu board */
+.board {
+  background: var(--red);
+  border: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 26px 24px 22px;
+  box-shadow: 10px 10px 0 var(--red-deep);
+  min-width: 0;
+}
+.board-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding-bottom: 14px;
+  margin-bottom: 8px;
+  border-bottom: 2px dashed rgba(242, 182, 28, 0.6);
+}
+.board-head h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.45rem;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+}
+.board-head span { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #ffd9d4; }
+.board ul { list-style: none; margin: 0; padding: 0; }
+.board li { display: flex; align-items: baseline; gap: 8px; padding-block: 11px; font-weight: 700; color: #fff; }
+.board li .dots { flex: 1; min-width: 12px; border-bottom: 2px dotted rgba(255, 255, 255, 0.4); transform: translateY(-4px); }
+.board li .note { font-size: 0.8rem; font-weight: 600; color: var(--gold-soft); text-align: right; }
+.board-foot { margin-top: 10px; font-size: 0.78rem; color: #ffd9d4; font-weight: 600; }
+
+/* Section heads */
+.sec-head { max-width: 640px; margin-bottom: 44px; }
+.sec-head .kicker {
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ff6b61;
+  background: none;
+}
+.sec-head h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  line-height: 1.1;
+  margin-top: 10px;
+  color: var(--gold);
+}
+.sec-head p { margin-top: 14px; color: var(--muted); }
+
+/* Menu grid */
+.menu { background: var(--ink); border-block: 1px solid var(--line); }
+.menu .sec-head .kicker { color: #ff6b61; }
+.dishes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+.dish {
+  background: var(--black);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  min-width: 0;
+}
+.dish:hover { border-color: var(--gold); transform: translateY(-3px); }
+.dish .pic { display: block; width: 100%; height: auto; border-bottom: 1px solid var(--line); }
+.dish .body { padding: 20px 22px 26px; }
+.pic-note { margin-top: 14px; font-size: 0.8rem; color: var(--muted); }
+.dish .tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+  background: var(--red);
+  color: #fff;
+}
+.dish .tag.alt { background: var(--gold); color: var(--black); }
+.dish h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.3rem; margin-top: 16px; color: var(--text); }
+.dish p { margin-top: 8px; font-size: 0.93rem; color: var(--muted); }
+.menu-note {
+  margin-top: 30px;
+  padding: 16px 20px;
+  border-left: 4px solid var(--gold);
+  background: var(--ink-2);
+  font-size: 0.93rem;
+  color: var(--text);
+}
+.menu-note a { color: var(--gold); font-weight: 700; }
+
+/* Why */
+.pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.pillar { padding: 32px 28px; border-right: 1px solid var(--line); min-width: 0; }
+.pillar:last-child { border-right: 0; }
+.pillar .mark { width: 14px; height: 14px; background: var(--red); transform: rotate(45deg); margin-bottom: 22px; box-shadow: 0 0 0 4px var(--black), 0 0 0 6px var(--gold); }
+.pillar h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.25rem; color: var(--gold); }
+.pillar p { margin-top: 10px; color: var(--muted); font-size: 0.95rem; }
+
+/* Certificate */
+.cert { background: var(--red-deep); position: relative; }
+.cert::before, .cert::after { content: ""; position: absolute; left: 0; right: 0; height: 18px; background: inherit; }
+.cert .sec-head .kicker { color: var(--gold-soft); }
+.cert .sec-head p { color: #f3cfc9; }
+.cert-grid { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 60px; align-items: start; }
+.frame-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #f7d57a, #c8901a 45%, #f2b61c 70%, #a97410);
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
+  cursor: zoom-in;
+  position: relative;
+}
+.frame-btn img { width: 100%; border: 6px solid var(--black); background: #fff; }
+.frame-hint {
+  display: block;
+  margin-top: 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+.cert-info { min-width: 0; }
+.seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--black);
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.seal svg { width: 18px; height: 18px; }
+.cert-info dl { margin: 26px 0 0; display: grid; gap: 0; }
+.cert-info .row { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(242, 182, 28, 0.3); }
+.cert-info dt { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-soft); padding-top: 3px; }
+.cert-info dd { margin: 0; font-weight: 600; color: #fff; overflow-wrap: anywhere; }
+.cert-info dd small { display: block; font-weight: 500; color: #f3cfc9; font-size: 0.85rem; }
+
+/* Lightbox */
+.lightbox[hidden] { display: none; }
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(20px, env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-right, 0px)) max(20px, env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px));
+}
+.lightbox img { max-height: 100%; max-width: 100%; width: auto; border: 8px solid var(--gold); background: #fff; }
+.lightbox .close {
+  position: absolute;
+  top: max(14px, env(safe-area-inset-top, 0px));
+  right: max(14px, env(safe-area-inset-right, 0px));
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: var(--black);
+  color: var(--gold);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* Location */
+.location .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; }
+.card { border: 1px solid var(--line); border-radius: 10px; padding: 34px 30px; background: var(--ink); min-width: 0; }
+.card h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.4rem; color: var(--gold); }
+.contact-list { display: grid; gap: 22px; margin-top: 26px; }
+.contact-item .label { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #ff6b61; }
+.contact-item .value { margin-top: 4px; font-weight: 600; font-size: 1.05rem; overflow-wrap: anywhere; }
+.contact-item .value.big { font-family: var(--font-display); font-size: 1.7rem; color: var(--text); letter-spacing: 0.02em; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.copy-status { font-size: 0.82rem; color: var(--gold-soft); min-height: 1.2em; margin-top: 10px; font-weight: 600; }
+.mapcard {
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background-color: #14100d;
+  background-image:
+    linear-gradient(rgba(242, 182, 28, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 182, 28, 0.07) 1px, transparent 1px);
+  background-size: 38px 38px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  min-height: 340px;
+  min-width: 0;
+}
+.mapcard .road { position: absolute; background: rgba(255, 255, 255, 0.1); }
+.mapcard .road.h { left: -5%; right: -5%; top: 38%; height: 16px; transform: rotate(-6deg); }
+.mapcard .road.v { top: -5%; bottom: -5%; left: 62%; width: 12px; transform: rotate(8deg); }
+.mapcard .pin { position: absolute; top: 22%; left: 52%; width: 62px; height: 62px; filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.6)); }
+.mapcard .pin-ring {
+  position: absolute; top: 38%; left: 50%; width: 90px; height: 90px; margin: -2px 0 0 -2px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(193, 32, 26, 0.35), transparent 70%);
+}
+.mapcard .where { position: relative; z-index: 2; }
+.mapcard .where strong { display: block; font-family: var(--font-display); font-weight: 400; font-size: 1.3rem; color: var(--gold); }
+.mapcard .where span { display: block; margin: 4px 0 18px; color: var(--muted); font-size: 0.92rem; }
+
+/* Footer */
+footer { background: var(--ink); border-top: 1px solid var(--line); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; padding-block: 34px; font-size: 0.88rem; color: var(--muted); }
+footer .name { font-family: var(--font-display); color: var(--gold); font-size: 1.05rem; letter-spacing: 0.04em; text-transform: uppercase; }
+footer p + p { margin-top: 4px; }
+
+/* Floating WhatsApp */
+.fab {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 55;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--black);
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 13px 20px;
+  border-radius: 999px;
+  border: 2px solid var(--black);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 0 0 2px var(--gold);
+}
+.fab svg { width: 22px; height: 22px; }
+
+@media (max-width: 900px) {
+  section { padding-block: 64px; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 44px; }
+  .cert-grid { grid-template-columns: 1fr; gap: 40px; }
+  .cert-grid .frame-col { max-width: 380px; }
+  .location .grid { grid-template-columns: 1fr; }
+  .nav a.link { display: none; }
+  .pillar { border-right: 0; border-bottom: 1px solid var(--line); }
+  .pillar:last-child { border-bottom: 0; }
+}
+@media (max-width: 520px) {
+  .hero { padding-block: 48px 64px; }
+  .cert-info .row { grid-template-columns: 1fr; gap: 2px; }
+  .board { padding: 22px 18px 18px; box-shadow: 6px 6px 0 var(--red-deep); }
+  .card { padding: 26px 20px; }
+  .brand-name small { display: none; }
+  .site-header .btn-sm { padding: 8px 14px; }
+  .fab span { display: none; }
+  .fab { padding: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .dish { transition: none; }
+  .btn:hover, .dish:hover { transform: none; }
+}
+</style>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#atas" aria-label="Sabana Minang, ke bagian atas">
+      <svg viewBox="0 0 48 32" aria-hidden="true"><path d="M4 29 C10 27 12 15 7 3 C14 12 18 14 24 14 C30 14 34 12 41 3 C36 15 38 27 44 29 Z" fill="#f2b61c"/><rect x="10" y="26" width="28" height="3" fill="#c1201a"/></svg>
+      <span class="brand-name">Sabana Minang<small>Nasi Padang Â· Denpasar</small></span>
+    </a>
+    <nav class="nav" aria-label="Navigasi utama">
+      <a class="link" href="#menu">Menu</a>
+      <a class="link" href="#sertifikat">Sertifikat</a>
+      <a class="link" href="#lokasi">Lokasi</a>
+      <a class="btn btn-gold btn-sm" href="https://wa.me/6281236336612?text=Halo%20Sabana%20Minang%2C%20saya%20ingin%20pesan%20nasi%20Padang." target="_blank" rel="noopener">Pesan via WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main id="atas">
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Kuliner asli Minangkabau</span>
+        <h1>Rasa Minang yang asli, di <em>Denpasar</em>.</h1>
+        <p class="lede">Sabana Minang menyajikan nasi Padang dengan bumbu dan cara masak khas Minangkabau. Rendang yang legit, gulai yang gurih, sambal yang menggigit, dan usaha kami berlisensi resmi.</p>
+        <div class="hero-cta">
+          <a class="btn btn-red" href="https://wa.me/6281236336612?text=Halo%20Sabana%20Minang%2C%20saya%20ingin%20pesan%20nasi%20Padang." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.17-1.5A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.06.89.92-2.98-.2-.31A8.2 8.2 0 1 1 12.04 20.1Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.22-.08-.39-.12-.55.12-.16.25-.63.8-.78.96-.14.17-.29.18-.54.06-.25-.13-1.04-.38-1.98-1.22-.73-.65-1.22-1.46-1.37-1.7-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.55-1.34-.76-1.84-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.05s.88 2.37 1 2.54c.12.16 1.73 2.65 4.19 3.72.59.25 1.04.4 1.4.51.59.19 1.12.16 1.54.1.47-.07 1.46-.6 1.66-1.17.2-.58.2-1.07.14-1.17-.06-.1-.22-.16-.47-.28Z"/></svg>
+            Pesan via WhatsApp
+          </a>
+          <a class="btn btn-line" href="#lokasi">Lihat Lokasi</a>
+        </div>
+        <ul class="hero-facts">
+          <li>Resep asli Minangkabau</li>
+          <li>Berlisensi Yayasan Armina Minang Bali</li>
+          <li>Jl. Raya Sesetan No. 149</li>
+        </ul>
+      </div>
+
+      <aside class="board" aria-label="Hidangan andalan">
+        <div class="board-head"><h2>Hidangan Andalan</h2><span>Sabana Minang</span></div>
+        <ul>
+          <li>Rendang <span class="dots"></span><span class="note">daging empuk</span></li>
+          <li>Gulai Ayam <span class="dots"></span><span class="note">kuah santan</span></li>
+          <li>Dendeng Balado <span class="dots"></span><span class="note">pedas</span></li>
+          <li>Ayam Pop <span class="dots"></span><span class="note">gurih lembut</span></li>
+          <li>Telur Balado <span class="dots"></span><span class="note">sambal merah</span></li>
+          <li>Sambal Ijo <span class="dots"></span><span class="note">cabai hijau</span></li>
+        </ul>
+        <p class="board-foot">Menu dan harga terbaru: tanyakan lewat WhatsApp.</p>
+      </aside>
+    </div>
+  </div>
+  <div class="strip" role="presentation"></div>
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Menu</span>
+        <h2>Lauk khas yang selalu dicari</h2>
+        <p>Pilih lauk favoritmu, disajikan dengan nasi hangat dan sambal. Berikut hidangan Minang yang menjadi andalan warung nasi Padang.</p>
+      </div>
+      <div class="dishes">
+        <article class="dish"><img class="pic" src="rendang.png" alt="Rendang" width="320" height="200" loading="lazy"><div class="body"><span class="tag">Daging</span><h3>Rendang</h3><p>Daging sapi dimasak lama dengan santan dan rempah sampai bumbunya meresap dan pekat.</p></div></article>
+        <article class="dish"><img class="pic" src="gulai ayam.png" alt="Gulai Ayam" width="320" height="200" loading="lazy"><div class="body"><span class="tag">Ayam</span><h3>Gulai Ayam</h3><p>Ayam dalam kuah santan kuning yang gurih, kaya kunyit, jahe, dan serai.</p></div></article>
+        <article class="dish"><img class="pic" src="dendeng balado.png" alt="Dendeng Balado" width="320" height="200" loading="lazy"><div class="body"><span class="tag">Daging</span><h3>Dendeng Balado</h3><p>Irisan daging tipis yang digoreng garing, disiram sambal balado merah yang pedas.</p></div></article>
+        <article class="dish"><img class="pic" src="ayam pop.png" alt="Ayam Pop" width="320" height="200" loading="lazy"><div class="body"><span class="tag">Ayam</span><h3>Ayam Pop</h3><p>Ayam rebus bumbu putih yang lembut dan gurih, dimakan dengan sambal.</p></div></article>
+        <article class="dish"><img class="pic" src="telur balado.png" alt="Telur Balado" width="320" height="200" loading="lazy"><div class="body"><span class="tag alt">Pelengkap</span><h3>Telur Balado</h3><p>Telur rebus digoreng sebentar lalu dibalur sambal cabai merah yang pedas manis.</p></div></article>
+        <article class="dish"><img class="pic" src="gulai nangka.png" alt="Gulai Nangka" width="320" height="200" loading="lazy"><div class="body"><span class="tag alt">Sayur</span><h3>Gulai Nangka</h3><p>Nangka muda dalam kuah santan berbumbu. Teman yang pas untuk lauk berminyak.</p></div></article>
+        <article class="dish"><img class="pic" src="daun singkong.png" alt="Daun Singkong Rebus" width="320" height="200" loading="lazy"><div class="body"><span class="tag alt">Sayur</span><h3>Daun Singkong</h3><p>Daun singkong rebus yang empuk dan sedikit pahit, penyeimbang rasa gulai.</p></div></article>
+        <article class="dish"><img class="pic" src="sambal ijo.png" alt="Sambal Ijo" width="320" height="200" loading="lazy"><div class="body"><span class="tag alt">Sambal</span><h3>Sambal Ijo</h3><p>Cabai hijau ditumis dengan bawang dan tomat hijau. Segar, pedas, dan harum.</p></div></article>
+      </div>
+      <p class="pic-note">Foto asli setiap lauk dari menu kami.</p>
+      <p class="menu-note">Ketersediaan lauk bisa berbeda setiap hari. Tanyakan menu hari ini dan harganya lewat <a href="https://wa.me/6281236336612?text=Halo%20Sabana%20Minang%2C%20menu%20hari%20ini%20apa%20saja%3F" target="_blank" rel="noopener">WhatsApp 0812-3633-6612</a>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Mengapa Sabana Minang</span>
+        <h2>Masakan Minang yang bisa dipercaya</h2>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><div class="mark"></div><h3>Resep asli Minangkabau</h3><p>Dimasak dengan bumbu dan teknik tradisi Minang, dari rendang sampai sambal.</p></div>
+        <div class="pillar"><div class="mark"></div><h3>Usaha berlisensi</h3><p>Berada di bawah pengawasan dan lisensi Yayasan Armina Minang Bali. Sertifikatnya ada di bawah ini.</p></div>
+        <div class="pillar"><div class="mark"></div><h3>Pesan lewat WhatsApp</h3><p>Tanya menu hari ini dan sampaikan pesananmu langsung ke kami.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip" role="presentation"></div>
+  <section class="cert" id="sertifikat">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Sertifikat Resmi</span>
+        <h2>Kuliner asli Minangkabau, bersertifikat</h2>
+        <p>Sabana Minang terdaftar sebagai anggota Armina Bali dan memegang sertifikat lisensi yang berlaku sampai 2031.</p>
+      </div>
+      <div class="cert-grid">
+        <div class="frame-col">
+          <button class="frame-btn" type="button" id="open-cert" aria-label="Perbesar sertifikat">
+            <img src="sertifikat.png" width="550" height="787" alt="Sertifikat Kuliner Asli Minangkabau Armina Bali atas nama Sabana Minang, Jl. Raya Sesetan No. 149, Denpasar, Bali">
+          </button>
+          <span class="frame-hint">Ketuk gambar untuk memperbesar</span>
+        </div>
+        <div class="cert-info">
+          <span class="seal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11V5l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+            Lisensi berlaku 2026 â€“ 2031
+          </span>
+          <dl>
+            <div class="row"><dt>Nomor sertifikat</dt><dd>ARMINA 007 / 08 / 2026</dd></div>
+            <div class="row"><dt>Jenis</dt><dd>Kuliner Asli Minangkabau, Armina Bali</dd></div>
+            <div class="row"><dt>Pemilik usaha</dt><dd>Indra Wihelman<small>Sutan Panduko Sindo</small></dd></div>
+            <div class="row"><dt>Alamat usaha</dt><dd>Jl. Raya Sesetan No. 149, Denpasar, Bali</dd></div>
+            <div class="row"><dt>Diterbitkan</dt><dd>Denpasar, 2 Agustus 2026</dd></div>
+            <div class="row"><dt>Penerbit</dt><dd>Yayasan Armina Minang Bali<small>Jl. Yos Sudarso No. 4, Denpasar, Bali</small></dd></div>
+            <div class="row"><dt>Merek terdaftar</dt><dd>Nomor registrasi IDM001092420 tahun 2022<small>Kementerian Hukum dan Hak Asasi Manusia, Direktorat Jenderal Kekayaan Intelektual</small></dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="strip" role="presentation"></div>
+
+  <section class="location" id="lokasi">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker" style="color:#ff6b61">Lokasi dan Kontak</span>
+        <h2>Datang makan, atau pesan sekarang</h2>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Warung Nasi Padang Sabana Minang</h3>
+          <div class="contact-list">
+            <div class="contact-item"><div class="label">Alamat</div><div class="value">Jl. Raya Sesetan No. 149, Denpasar, Bali</div></div>
+            <div class="contact-item"><div class="label">WhatsApp</div><div class="value big" id="wa-number">0812-3633-6612</div></div>
+          </div>
+          <div class="actions">
+            <a class="btn btn-red" href="https://wa.me/6281236336612?text=Halo%20Sabana%20Minang%2C%20saya%20ingin%20pesan%20nasi%20Padang." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.17-1.5A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.06.89.92-2.98-.2-.31A8.2 8.2 0 1 1 12.04 20.1Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.22-.08-.39-.12-.55.12-.16.25-.63.8-.78.96-.14.17-.29.18-.54.06-.25-.13-1.04-.38-1.98-1.22-.73-.65-1.22-1.46-1.37-1.7-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.55-1.34-.76-1.84-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.05s.88 2.37 1 2.54c.12.16 1.73 2.65 4.19 3.72.59.25 1.04.4 1.4.51.59.19 1.12.16 1.54.1.47-.07 1.46-.6 1.66-1.17.2-.58.2-1.07.14-1.17-.06-.1-.22-.16-.47-.28Z"/></svg>
+              Chat WhatsApp
+            </a>
+            <button class="btn btn-line" type="button" id="copy-wa">Salin nomor</button>
+          </div>
+          <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="mapcard">
+          <div class="road h"></div><div class="road v"></div>
+          <div class="pin-ring"></div>
+          <svg class="pin" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 2C14.6 2 7 9.4 7 18.6 7 30.5 24 46 24 46s17-15.5 17-27.4C41 9.4 33.4 2 24 2Z" fill="#c1201a" stroke="#f2b61c" stroke-width="2.5"/><circle cx="24" cy="18.5" r="6.5" fill="#f2b61c"/></svg>
+          <div class="where">
+            <strong>Sabana Minang</strong>
+            <span>Jl. Raya Sesetan No. 149, Denpasar, Bali</span>
+            <a class="btn btn-gold" href="https://maps.app.goo.gl/SBPNvM8MGb26KmJj7" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              Buka di Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="strip" role="presentation"></div>
+<footer>
+  <div class="wrap">
+    <div>
+      <p class="name">Sabana Minang</p>
+      <p>Kuliner asli Minangkabau Â· Armina Bali</p>
+    </div>
+    <div>
+      <p>Jl. Raya Sesetan No. 149, Denpasar, Bali</p>
+      <p>WhatsApp 0812-3633-6612</p>
+    </div>
+    <div>
+      <p>Â© 2026 Sabana Minang</p>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/6281236336612?text=Halo%20Sabana%20Minang%2C%20saya%20ingin%20pesan%20nasi%20Padang." target="_blank" rel="noopener" aria-label="Pesan via WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.17-1.5A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.06.89.92-2.98-.2-.31A8.2 8.2 0 1 1 12.04 20.1Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.22-.08-.39-.12-.55.12-.16.25-.63.8-.78.96-.14.17-.29.18-.54.06-.25-.13-1.04-.38-1.98-1.22-.73-.65-1.22-1.46-1.37-1.7-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.55-1.34-.76-1.84-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.05s.88 2.37 1 2.54c.12.16 1.73 2.65 4.19 3.72.59.25 1.04.4 1.4.51.59.19 1.12.16 1.54.1.47-.07 1.46-.6 1.66-1.17.2-.58.2-1.07.14-1.17-.06-.1-.22-.16-.47-.28Z"/></svg>
+  <span>Pesan</span>
+</a>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Sertifikat diperbesar">
+  <button class="close" type="button" id="close-cert" aria-label="Tutup">&times;</button>
+  <img src="sertifikat.png" alt="Sertifikat Kuliner Asli Minangkabau Armina Bali, Sabana Minang">
+</div>
+
+<script>
+(function () {
+  var box = document.getElementById('lightbox');
+  var openBtn = document.getElementById('open-cert');
+  var closeBtn = document.getElementById('close-cert');
+  function openBox() { box.hidden = false; closeBtn.focus(); }
+  function closeBox() { box.hidden = true; openBtn.focus(); }
+  openBtn.addEventListener('click', openBox);
+  closeBtn.addEventListener('click', closeBox);
+  box.addEventListener('click', function (e) { if (e.target === box) closeBox(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !box.hidden) closeBox(); });
+
+  var status = document.getElementById('copy-status');
+  var number = '081236336612';
+  function say(t) { status.textContent = t; setTimeout(function () { status.textContent = ''; }, 2600); }
+  function selectNumber() {
+    var el = document.getElementById('wa-number');
+    var r = document.createRange(); r.selectNodeContents(el);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    say('Nomor terpilih. Salin dengan Ctrl+C atau tekan lama.');
+  }
+  document.getElementById('copy-wa').addEventListener('click', function () {
+    try {
+      navigator.clipboard.writeText(number).then(function () { say('Nomor 081236336612 disalin.'); }, selectNumber);
+    } catch (err) { selectNumber(); }
+  });
+})();
+</script>
+
+</body></html>
